@@ -1512,9 +1512,12 @@ class _LongDataFrameConverter(_DataFrameConverter):
                     # nan attribute values (nans don't compare equal so any
                     # example with an attribute of nan would fail the min/max
                     # equality check).
+                    isna_min = attribute_mins[column].isna()
+                    isna_max = attribute_maxes[column].isna()
+
                     comparison = [
-                        x is np.nan if y is np.nan else x == y
-                        for x, y in zip(attribute_mins[column], attribute_maxes[column])
+                        isna_min.iloc[i]==1 if isna_max.iloc[i]==1  else x == y
+                        for i,(x, y) in enumerate(zip(attribute_mins[column], attribute_maxes[column]))
                     ]
                     if not np.all(comparison):
                         raise DataError(
