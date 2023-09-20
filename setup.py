@@ -39,7 +39,7 @@ setup(
     use_scm_version=True,
     setup_requires=["setuptools_scm"],
     description="Synthetic Data Generation with optional Differential Privacy",
-    url="https://github.com/gretelai/gretel-synthetics",
+    url="https://github.com/psr6275/gretel-synthetics",
     license="https://gretel.ai/license/source-available-license",
     long_description=long_description,
     long_description_content_type="text/markdown",
